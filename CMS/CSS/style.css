@@ -1,0 +1,705 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    list-style-type: none;
+}
+
+body{
+    background-color: #F5F5F5;
+    z-index: 0;
+}
+a{
+    color: inherit;
+    background: inherit;
+}
+
+/* ------------ NAVIGATION -------------- */
+#mainNav{
+    width: 100%;
+    padding: 25px 20px 20px;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    color: #157A6E;
+    background: #D0EFE5;
+    font-size: 18px;
+}
+#navBrand{
+    width: 30%;
+}
+#navMenu{
+    width: 60%;
+    text-align: end;
+}
+#navMenu a{
+    padding: 30px 20px;
+    transition: 200ms ease-in-out;
+}
+#navMenu a:hover{
+    background-color: #FFAF87;
+    color: #ED6A5E;
+}
+#navButtons a{
+    margin: 8px;
+}
+#navButtons{
+    width: 20%;
+    margin-right: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
+.buttons{
+    padding: 10px 12px;
+    border-radius: 10px;
+    background-color: #AADED3;
+    font-weight: 500;
+    transition: 250ms ease-in-out;
+}
+.buttons:hover{
+    background-color: #80D1C0;
+    cursor: pointer;
+}
+#login{
+    background-color: #377771;
+    color: #AADED3;
+    transition: 250ms ease-in-out;
+}
+#login:hover{
+    background-color: #25625C;
+}
+#profileIconContainer{
+    width: 45px;
+    height: 100%;
+    z-index: 3;
+}
+#profileIconContainer:hover {
+    cursor: pointer;
+}
+#profileIconContainer:hover ~ #loggedSideNav{
+    transform: translateX(0);
+}
+#profileIconContainer img{
+    width: 100%;
+}
+#loggedSideNav{
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    background-color: #61A09A;
+    right: 0;
+    top: 0;
+    color: #D0EFE5;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 100px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translateX(500px);
+    transition: 300ms ease-in-out;
+}
+#loggedSideNav:hover{
+    transform: translateX(0);
+}
+#loggedSideNav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#loggedSideNav li{
+    margin: 0 30px 30px;
+}
+
+/* ------------ HOMEPAGE -------------- */
+#hero{
+    width: 100%;
+    height: 15em;
+    background-color: #D0EFE5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#heroMain{
+    width: 100%;
+    height: 32em;
+    background-color: #D0EFE5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#heroMainText, #heroText{
+    width: 40%;
+}
+#heroMainImgContainer{
+    width: 25%;
+}
+#heroMainImg{
+    width: 100%;
+}
+h1{
+    color: #ED6A5E;
+    font-size: 55px;
+}
+h2{
+    color: #ED6A5E;
+    font-size: 40px;
+}
+#heroSubtitle{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+#specialH1{
+    color: #61A09A;
+}
+
+/* ------------ HOMEPAGE CARD -------------- */
+#cardSection{
+    width: 70%;
+    height: 400px;
+    margin: 70px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#toggleCard{
+    width: 600px;
+    height: 400px;
+    border-radius: 32px;
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2; /* Putting checkbox on top */
+    transition: 200ms ease-in-out;
+}
+#toggleCard:checked ~ #cardContainer{
+    transform: rotateY(180deg); /* To rotate card when checkbox is checked */
+}
+#toggleCard:hover ~ #cardContainer{
+    border: 0 solid #FFAF87;
+    box-shadow: 0 0 20px #FFAF87;
+}
+#cardContainer{
+    width: 600px;
+    height: 400px;
+    border-radius: 32px;
+    position: relative;
+    transform-style: preserve-3d; /* To properly flip - treat it like a 3D object */
+    z-index: 1;
+    transition: 700ms ease-in-out;
+}
+
+#frontCard, #backCard{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    color: #ED6A5E;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden; /* Hiding the backfaces of both sides */
+    font-size: 30px;
+    font-weight: 600;
+}
+#frontCard p, #backCard p{
+    width: 90%;
+    text-align: center;
+}
+#frontCard{
+    background-color: #FFAF87;
+}
+#backCard{
+    background-color: #F5F5F5;
+    color: #FF8E72;
+    border: 1px solid #FFAF87;
+    transform: rotateY(180deg);
+}
+#cardInputContainer{
+    width: 40%;
+    height: 100px;
+    margin: 20px auto 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#cardInput{
+    width: 350px;
+    height: 40px;
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 5px 5px 5px 7px;
+    border-bottom: 4px solid #FFAF87;
+    outline: none;
+    font-size: 16px;
+}
+#submitButton2{
+    width: 100px;
+    margin:  20px;
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #FFAF87;
+    color: #ED6A5E;
+    font-weight: 600;
+    transition: 250ms ease-in-out;
+}
+#submitButton2:hover{
+    background-color: #F59E72;
+}
+#cardForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/* ------------ EDITIONS -------------- */
+
+.editions{
+    width: 90%;
+    margin: 70px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.editionCard{
+    width: 350px;
+    height: 300px;
+    margin: 20px;
+    background-color: #FFAF87;
+    border-radius: 30px;
+    color: #ED6A5E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 600;
+    transition: 200ms ease-in-out;
+}
+.editionCard:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+    background-color: #FFD8C1;
+}
+/* ------------ EDITIONS NOT LOGGED -------------- */
+#noClick{
+    pointer-events: none;
+}
+#modalContainer{
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 200ms ease-in-out;
+}
+#modal{
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+#modalText{
+    font-size: 20px;
+    margin: 20px;
+}
+.modalHome{
+    margin: 20px;
+}
+
+
+/* ------------ EDITION PAGE CARD -------------- */
+#editionPage{
+    width: 100%;
+
+    margin: 25px 0 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#editionCommentsSection, #editionCardSection{
+    width: 43%;
+    height: 400px;
+    margin: 0 50px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#editionCommentsSection{
+    height: 500px;
+    margin: 100px 0;
+}
+#editionCardInputContainer{
+    width: 40%;
+    height: 100px;
+    margin: 20px 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#editionCardInput{
+    width: 350px;
+    height: 40px;
+    margin: auto;
+    border: 0;
+    font-size: 18px;
+    background: transparent;
+    padding: 5px 5px 5px 7px;
+    border-bottom: 4px solid #FFAF87;
+    outline: none;
+}
+#editionToggleCard{
+    width: 600px;
+    height: 400px;
+    border-radius: 32px;
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2; /* Putting checkbox on top */
+    transition: 200ms ease-in-out;
+}
+#editionToggleCard:checked ~ #cardContainer{
+    transform: rotateY(180deg); /* To rotate card when checkbox is checked */
+}
+#editionToggleCard:hover ~ #cardContainer{
+    border: 0 solid #FFAF87;
+    box-shadow: 0 0 20px #FFAF87;
+}
+#commentsSection{
+    width: 90%;
+    height: 600px;
+    background-color: #AADED3;
+    border-radius: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#comments{
+    width: 90%;
+    height: 400px;
+    background-color: #D0EFE5;
+    overflow: scroll;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 20px;
+}
+#userComment{
+    margin: 10px 0 5px 0;
+    padding: 0 0 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 17px;
+}
+.username{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: lightseagreen;
+}
+.userImageContainer{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    margin: 0 12px 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 100px;
+}
+#usernameContent{
+    justify-content: space-evenly;
+}
+.userImageContainer img{
+    height: 100%;
+}
+#editingComment{
+    margin: 4px 0 0 0;
+}
+#editComment{
+    font-weight: 600;
+    color: #61A09A;
+    font-size: 15px;
+    margin: 0 10px 0 0;
+}
+#editCommentInput{
+    padding: 5px;
+    font-weight: 500;
+    color: black;
+    font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #61A09A;
+}
+#editCommentButton{
+    font-weight: 600;
+    font-size: 15px;
+    color: #61A09A;
+    margin-right: 7px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    display: inline;
+}
+#deleteCommentButton{
+    font-weight: 600;
+    font-size: 15px;
+    color: #ED6A5E;
+}
+#editingCommentForm{
+    display: flex;
+    flex-wrap: wrap;
+}
+#doneButton{
+    font-weight: 600;
+    font-size: 15px;
+    color: #D0EFE5;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: #61A09A;
+    border: 2px solid #157A6E;
+
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #61A09A;
+    cursor: grab;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ED6A5E;
+}
+#newCommentSection{
+    width: 90%;
+    height: 140px;
+    display: flex;
+}
+#writeComment{
+    resize: none;
+    width: 400px;
+    height: 70px;
+    border-radius: 10px;
+    padding: 8px 5px 5px 8px;
+    font-size: 15px;
+    border: 2px solid #AADED3;
+    transition: 200ms ease-in-out;
+    outline: none;
+}
+#writeComment:hover{
+    border: 2px solid #D0EFE5;
+}
+#writeComment:focus{
+    border: 2px solid #61A09A;
+}
+#formComments{
+    width: 350px;
+}
+#currentAnswerDisplay{
+    width: 400px;
+    font-weight: 600;
+    font-size: 19px;
+    color: #ED6A5E;
+    display: block;
+    text-align: center;
+}
+#currentAnswer{
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ED6A5E;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+#editAnswerText{
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: end;
+    color: #157A6E;
+}
+/* ------------ MY ANSWERS -------------- */
+#answersContainer{
+    width: 90%;
+    margin: 50px auto;
+}
+#answers{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#answerCardContainer{
+    width: 35%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#backCardAnswers{
+    width: 90%;
+    height: 70%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: #F5F5F5;
+    color: #FF8E72;
+    border: 1px solid #FFAF87;
+}
+#backCardAnswers p{
+    width: 90%;
+    text-align: center;
+}
+#userAnswer{
+    margin: 10px 0 0;
+    width: 300px;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-bottom: #FFAF87 3px solid;
+    background-color: transparent;
+    color: #25625C;
+    text-align: center;
+}
+#answerIcons img{
+    width: 60px;
+    padding: 10px 15px;
+}
+#answerIcons img:hover{
+    cursor: pointer;
+}
+
+/* ------------ FORM -------------- */
+.form{
+    height: auto;
+    margin: 80px;
+    display: flex;
+    justify-content: center;
+}
+#formContent{
+    width: 30%;
+    padding: 15px 10px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px #FFD8C1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formField{
+    margin: 15px 0;
+}
+.form label,  form input{
+    display: block;
+}
+.form label{
+    font-weight: 600;
+    font-size: 17px;
+    margin: 10px 0;
+    color: #ED6A5E;
+}
+.form input{
+    width: 290px;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #545454;
+    background-color: #F5F5F5;
+    border: 1px solid #FFD8C1;
+    box-shadow: inset 0 0 3px  #FFD8C1;
+    transition:  200ms ease-in-out;
+    outline: none;
+}
+.form input:hover{
+    border: 1px solid #FFAF87;
+}
+.form input::placeholder{
+    color: #FFAF87;
+}
+.form input:focus{
+    border: 2px solid #FFAF87;
+    box-shadow: 0 0 4px #FFAF87;
+}
+#submitButton{
+    width: 100px;
+    margin: 15px 0 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #FFAF87;
+    color: #ED6A5E;
+    font-weight: 500;
+    transition: 250ms ease-in-out;
+}
+#submitButton:hover{
+    background-color: #F59E72;
+}
+#margin{
+    margin: 30px 0 0;
+}
+#highlightedWord{
+    font-weight: 700;
+    color: #ED6A5E;
+}
+
+
+/* ------------ FOOTER -------------- */
+footer{
+    width: 100%;
+    height: 10em;
+    background-color: #377771;
+    color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+#footerContent{
+    text-align: center;
+}
