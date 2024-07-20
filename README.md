@@ -40,7 +40,7 @@ To run Claro locally, follow these steps:
     ```
 
 3. Set up the database:
-    - Import the database schema from `claro.sql` into your SQL database.
+    - Import the database from `claro.sql` into your SQL database.
 
 4. Configure database settings:
     - Update the database connection settings in `config.php`.
